@@ -13,8 +13,9 @@ console.log(process.env.CLIENT_URL);
 app.use(express.json()); // allow us to accept JSON data in the req.body
 app.use(
   cors({
-    origin: process.env.CLIENT_URL,
-    allowedHeaders: ["Content-Type"],
+    origin: "https://mern-product-management.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
