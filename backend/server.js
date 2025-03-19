@@ -11,10 +11,11 @@ const PORT = process.env.PORT || 5000;
 const __dirname = path.resolve();
 app.use(express.json()); // allow us to accept JSON data in the req.body
 app.use(
-  cors()
-  // origin: "*",
-  // methods: ["GET", "POST", "PUT", "DELETE"],
-  // allowedHeaders: ["Content-Type"],
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type"],
+  })
 );
 app.use("/api/products", productRoutes);
 
@@ -26,7 +27,7 @@ app.use("/api/products", productRoutes);
 // });
 // }
 
+connectDB();
 app.listen(PORT, () => {
-  connectDB();
   console.log(`Server started at http://localhost:${PORT}`);
 });
