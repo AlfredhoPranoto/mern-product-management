@@ -9,6 +9,9 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 const __dirname = path.resolve();
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
 app.use(express.json()); // allow us to accept JSON data in the req.body
 app.use(
   cors({
