@@ -9,12 +9,16 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 const __dirname = path.resolve();
+const origins = JSON.parse(process.env.CORS_ORIGINS);
+app.options("*", cors());
 app.use(express.json()); // allow us to accept JSON data in the req.body
-app.use(cors({
-  origin: process.env.CLIENT_URL,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+app.use(
+  cors({
+    origin: origins,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 app.get("/", (req, res) => {
   res.send("Hello World");
