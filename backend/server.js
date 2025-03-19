@@ -10,7 +10,13 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const __dirname = path.resolve();
 app.use(express.json()); // allow us to accept JSON data in the req.body
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://mern-product-management.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
 app.use("/api/products", productRoutes);
 
 if (process.env.NODE_ENV === "production") {
