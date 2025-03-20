@@ -24,7 +24,7 @@ const CreatePage = () => {
 
   const handleAddProduct = async () => {
     handleApiResponse(createProduct(newProduct));
-    setNewProduct({ name: "", price: "", image: "" });
+    setNewProduct({ name: "", price: "", image: "" });  
   };
 
   return (
