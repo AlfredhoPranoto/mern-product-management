@@ -9,7 +9,7 @@ When directly accessing a route like `/create` or refreshing the page, the appli
 ### Cause of the Problem
 This issue occurs because React Router is handling routing on the client-side. When a user refreshes or directly visits a route, the request is sent to the backend, which does not recognize the route and returns a 404 error.
 
-## Solution Tried but Did Not Work
+## Solution I tried but did not work
 To fix this, configure the Express server to always serve the frontend's `index.html` for unknown routes so that React Router can handle them. Add the following code to your `server.js` or `server.ts`:
 
 ```js
@@ -20,6 +20,9 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
 ```
+
+## Help
+Help will be very appreciated
 
 ## Installation
 1. Clone the repository:
@@ -51,5 +54,5 @@ app.get("*", (req, res) => {
 - React Router
 
 ## Author
-[Your Name]
+Alfredho Pranoto
 
