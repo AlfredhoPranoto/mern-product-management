@@ -22,6 +22,7 @@ app.get("*", (req, res) => {
 ```
 
 ## Help
+Please ignore how the commit message :)
 Help will be very appreciated
 
 ## Installation
